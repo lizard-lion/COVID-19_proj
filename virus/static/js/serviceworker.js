@@ -1,4 +1,4 @@
-+var staticCacheName = 'COVID-19_cache';
+var staticCacheName = 'COVID-19_cache';
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
