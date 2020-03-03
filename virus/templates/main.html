@@ -1,80 +1,55 @@
 {% extends './base.html' %}
 
-{% block pagination %}
+{% block content %}
 {% load static %}
 
 <div class="content wrapper">
     <ol class="post-card-box clearfix"><li>
         <div class="post-card">
-        <a href="/2019-nCoV/about/" class="post-card-image" style="background-image: url( ../static/img/about.jpg )">
+        <a href="/about" class="post-card-image" style="background-image: url( ../static/img/about.jpg )">
         </a>
-
-        <div class="post-card-body">
-            
-            <a href="/2019-nCoV" class="post-card-link"><h3 class="post-card-title">About</h3></a>
-        </div>
-
+            <div class="post-card-body">
+                <a href="/about" class="post-card-link"><h3 class="post-card-title">About</h3></a>
+            </div>
         </div>
         </li><li>
             <div class="post-card">
-            <a href="/2019-nCoV/category/hospital.html" class="post-card-image" style="background-image: url( ../static/img/hospital.jpg )">
+            <a href="/hospital" class="post-card-image" style="background-image: url( ../static/img/hospital.jpg )">
             </a>
 
             <div class="post-card-body">
                 
-                <a href="/2019-nCoV/tags#보건복지부" class="tag">|&#32;보건복지부</a>
-                
-                <a href="/2019-nCoV/tags#질병관리본부" class="tag">|&#32;질병관리본부</a>
-                
-                <a href="/2019-nCoV/tags#권역별" class="tag">|&#32;권역별</a>
-                
-                <a href="/2019-nCoV" class="post-card-link"><h3 class="post-card-title">지정병원 위치</h3></a>
+                <a href="#" class="tag">|&#32;보건복지부</a>
+                <a href="#" class="tag">|&#32;질병관리본부</a>            
+                <a href="#" class="tag">|&#32;권역별</a>
+                <a href="/hospital" class="post-card-link"><h3 class="post-card-title">지정병원 위치</h3></a>
             </div>
 
             </div>
         </li><li>
             <div class="post-card">
-            <a href="/2019-nCoV/category/patient.html" class="post-card-image" style="background-image: url( ../static/img/patient.jpg )">
+            <a href="/map" class="post-card-image" style="background-image: url( ../static/img/patient.jpg )">
             </a>
-
-            <div class="post-card-body">
-                
-                <a href="/2019-nCoV/tags#보건복지부" class="tag">|&#32;보건복지부</a>
-                
-                <a href="/2019-nCoV/tags#질병관리본부" class="tag">|&#32;질병관리본부</a>
-                
-                <a href="/2019-nCoV/tags#보도자료" class="tag">|&#32;보도자료</a>
-                
-                <a href="/2019-nCoV" class="post-card-link"><h3 class="post-card-title">확진자 동선 및 위치</h3></a>
-            </div>
-
+                <div class="post-card-body">
+                    <a href="#" class="tag">|&#32;보건복지부</a>
+                    <a href="#" class="tag">|&#32;질병관리본부</a>
+                    <a href="#" class="tag">|&#32;보도자료</a>
+                    <a href="/map" class="post-card-link"><h3 class="post-card-title">확진자 동선 및 위치</h3></a>
+                </div>
             </div>
         </li><li>
             <div class="post-card">
-            <a href="/2019-nCoV/category/virusinfo.html" class="post-card-image" style="background-image: url( ../static/img/virus.png )">
+            <a href="/virus" class="post-card-image" style="background-image: url( ../static/img/virus.png )">
             </a>
-
-            <div class="post-card-body">
-                
-                <a href="/2019-nCoV/tags#보도자료" class="tag">|&#32;보도자료</a>
-                
-                <a href="/2019-nCoV/tags#바이러스" class="tag">|&#32;바이러스</a>
-                
-                <a href="/2019-nCoV/tags#예방법" class="tag">|&#32;예방법</a>
-                
-                <a href="/2019-nCoV/tags#증상" class="tag">|&#32;증상</a>
-                
-                <a href="/2019-nCoV/tags#치료제" class="tag">|&#32;치료제</a>
-                
-                <a href="/2019-nCoV" class="post-card-link"><h3 class="post-card-title">코로나 19 정보</h3></a>
-            </div>
-
+                <div class="post-card-body">
+                    <a href="#" class="tag">|&#32;보도자료</a>
+                    <a href="#" class="tag">|&#32;바이러스</a>
+                    <a href="#" class="tag">|&#32;예방법</a>
+                    <a href="#" class="tag">|&#32;증상</a>
+                    <a href="#" class="tag">|&#32;치료제</a>
+                    <a href="/virus" class="post-card-link"><h3 class="post-card-title">코로나 19 정보</h3></a>
+                </div>
             </div>
         </li>
-
     </ol>
-
-
-
-
-{% endblock pagination%}
+{% endblock content %}

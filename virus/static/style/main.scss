@@ -1,4 +1,6 @@
-@import './color';
+@import './hospital';
+@import './about';
+
 
 *, *::after, *::before {
     box-sizing: border-box;
@@ -271,7 +273,6 @@ clear: both;
   
 
 //footer
-
 .main-footer {
     padding: 15px 0;
     background-color: #efefef;
