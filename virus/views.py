@@ -9,7 +9,7 @@ def about(request):
 def hospital(request):
     return render(request, 'hospital.html')
 
-def map(request):
+def patient(request):
 
     testdata = {
         "name" : "1번 환자",
@@ -20,9 +20,9 @@ def map(request):
         testdata
     ]
 
-    return render(request, 'map.html', {
+    return render(request, 'patient.html', {
         'data' : data,
     })
 
 def virus(request):
-    return render(request, 'virus.html')
+    return render(request, 'virusinfo.html')
