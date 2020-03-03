@@ -1,0 +1,13 @@
+asgiref==3.2.3
+certifi==2019.11.28
+cssutils==1.0.2
+Django==3.0.3
+django-appconf==1.0.3
+django-compressor==2.4
+django-sass-processor==0.8
+libsass==0.19.4
+pytz==2019.3
+rcssmin==1.0.6
+rjsmin==1.1.0
+six==1.14.0
+sqlparse==0.3.1

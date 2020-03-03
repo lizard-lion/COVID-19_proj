@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+{% load sass_tags %}
+<html>
+<head>
+	<title>COVID-19</title>
+    <link href="{% sass_src '../static/style/main.scss' %}" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{{ "../static/fonts/font-awesome.css" }}">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+</head>
+<body>
+    <div class="flex-container">
+    <header class="main-header">
+    <div class="wrapper">
+        <div class="header-flex">
+        <div class="menu-icon-container">
+            <span class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </div>
+        <nav class="main-nav">
+            <span class="menu-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+            <ul>
+            <li><a href="{{site.baseurl}}/">Home</a></li>
+            <li><a href="{{site.baseurl}}/about">About</a></li>
+            </ul>
+        </nav>
+        <p class="logo"><a href="/">COVID-19</a></p>
+        <div class="alert">
+            <div class="alert-level">
+            <h4 style="margin-bottom: 0"> 감염병 재난 위기 수준 : <text class="level" style="color : red">심각</text> </h4>
+            <h4 style="margin-top: 0"> 국내 확진환자 : <text class="level" style="color : red">763</text> </h4>
+            </div>
+        </div>
+        </div>
+    </div>
+    </header> 
+    </div>
+    <!-- End Header -->
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
