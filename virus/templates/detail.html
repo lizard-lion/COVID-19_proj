@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+{% block content %}
+{% load static %}
+<article class="article-page">
+    <div class="page-image">
+      <div class="cover-image" style="background: url(../static/img/news.jpg) center no-repeat; background-size: cover;"></div>
+    </div>
+    <div class="wrapper">
+      <div class="page-content">
+        <div class="header-page">
+          <h1 class="page-title"> {{ Post.title }} </h1>
+        </div>
+        <p class="info">{{ Post.updated_at }}, {{ Post.useremail }}</p>
+        <!-- content here! -->
+        <p class="content_detail"> {{ Post.content }} </p>
+
+
+        {% include './author-box.html' %}
+      </div>
+    </div> <!-- End Wrapper -->
+</article>
+
+{% endblock content %}
