@@ -2,9 +2,10 @@
 
 {% block content %}
 {% load static %}
+
 <article class="article-page">
     <div class="page-image">
-      <div class="cover-image" style="background: url(../static/img/virus.png) center no-repeat; background-size: cover;"></div>
+      <div class="cover-image" style="background: url(../static/img/news.jpg) center no-repeat; background-size: cover;"></div>
     </div>
     <div class="wrapper">
       <div class="page-content">
@@ -13,12 +14,86 @@
         </div>
 
         <!-- content here! -->
-        <h1> test </h1>
+        <div class="tablepage">
+          <table class="postTable" border="1">
+            <thead>
+              <tr>
+                <th class="id">No</th>
+                <th class="title">title</th>
+                <th class="user">user</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for post in Posts %}
+              <tr>
+                <td class="id">{{ post.id }}</td>
+                <td class="title">{{ post.title }}</td>
+                <td class="user">{{ post.useremail }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
 
+          </table>
 
+        </div>
         {% include './author-box.html' %}
       </div>
     </div> <!-- End Wrapper -->
 </article>
+
+<script>
+  $(document).ready(function(){
+    var table = $(".postTable")
+    var table_th_length = table.find("thead th").length; //테이블 칸의 갯수
+    var table_tr_length = table.find("tbody tr").length; //테이블 내용 줄 갯수
+    var $tr = table.find('tbody tr');
+    var rowPerPage = 3 //페이지당 글 개수
+    var pageTotal = parseInt(table_tr_length/rowPerPage) + 1
+    console.log(pageTotal)
+    $('#nav').remove();
+	  table.after('<div id="nav">');
+    var i = 0;
+
+    for (; i < pageTotal; i++) {
+      $('<a href="#"></a>')
+          .attr('rel', i)
+          .html(i + 1)
+          .appendTo('#nav');
+    }
+    
+    $tr.addClass('off-screen')
+			.slice(0, rowPerPage)
+			.removeClass('off-screen');
+
+  var $pagingLink = $('#nav a');
+	$pagingLink.on('click', function (evt) {
+		evt.preventDefault();
+		var $this = $(this);
+		if ($this.hasClass('active')) {
+			return;
+		}
+		$pagingLink.removeClass('active');
+		$this.addClass('active');
+
+		// 0 => 0(0*4), 4(0*4+4)
+		// 1 => 4(1*4), 8(1*4+4)
+		// 2 => 8(2*4), 12(2*4+4)
+		// 시작 행 = 페이지 번호 * 페이지당 행수
+		// 끝 행 = 시작 행 + 페이지당 행수
+
+		var currPage = $this.attr('rel');
+		var startItem = currPage * rowPerPage;
+		var endItem = startItem + rowPerPage;
+
+		$tr.css('opacity', '0.0')
+				.addClass('off-screen')
+				.slice(startItem, endItem)
+				.removeClass('off-screen')
+				.animate({opacity: 1}, 300);
+
+	});
+  $pagingLink.filter(':first').addClass('active');
+  })
+</script>
 
 {% endblock content %}

@@ -9,4 +9,5 @@ urlpatterns = [
     path('patient/', views.patient, name="patient"),
     path('virus/', views.virus, name="virus"),
     path('community/', views.community, name="community"),
+    path('posting/', views.create_posting, name="posting"),
 ]

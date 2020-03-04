@@ -3,6 +3,15 @@
 {% block content %}
 {% load static %}
 
-
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="email"></input>
+    <br/>
+    <input type="text" name="title"></input>
+    <br/>
+    <textarea cols="40" rows="10" name="content"></textarea>
+    <br/>
+    <input type="submit"/>
+</form>
 
 {% endblock content %}

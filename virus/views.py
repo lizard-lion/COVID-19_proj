@@ -36,14 +36,18 @@ def community(request):
         'Posts' : Posts,
     })
 
-def create_posting(request, id):
-    if(request.method == 'POST'):
+def create_posting(request):
+
+    if(request.method == "GET"):
+        return render(request, 'posting.html')
+
+    elif(request.method == 'POST'):
         _useremail = request.POST.get('email')
         _title = request.POST.get('title')
         _content = request.POST.get('content')
         _updated_at = timezone.datetime.now()
 
-        new_posting = Posting.object.create(
+        new_posting = Posting.objects.create(
             useremail = _useremail,
             title = _title,
             content = _content,
