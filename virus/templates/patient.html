@@ -43,7 +43,6 @@ overflow: hidden;
 
         <!-- 지도 -->
         {% for pt in data %}
-          <h1>{{pt}}</h1>
           <button class="accordion"> {{pt.name}} </button>
           <div>
             <div id="{{ pt.mapid }}" style="width:100%;height:60vh;"></div>
