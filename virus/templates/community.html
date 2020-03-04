@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+{% block content %}
+{% load static %}
+<article class="article-page">
+    <div class="page-image">
+      <div class="cover-image" style="background: url(../static/img/virus.png) center no-repeat; background-size: cover;"></div>
+    </div>
+    <div class="wrapper">
+      <div class="page-content">
+        <div class="header-page">
+          <h1 class="page-title"> 코로나 19 보도자료 </h1>
+        </div>
+
+        <!-- content here! -->
+        <h1> test </h1>
+
+
+        {% include './author-box.html' %}
+      </div>
+    </div> <!-- End Wrapper -->
+</article>
+
+{% endblock content %}

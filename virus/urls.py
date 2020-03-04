@@ -8,4 +8,5 @@ urlpatterns = [
     path('hospital/', views.hospital, name="hospital"),
     path('patient/', views.patient, name="patient"),
     path('virus/', views.virus, name="virus"),
+    path('community/', views.community, name="community"),
 ]
