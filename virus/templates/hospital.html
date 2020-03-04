@@ -17,31 +17,43 @@
 
         <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1f2d00cfc8657039feba0df70245aac1"></script>
         <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = {
-                center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
-                level: 13, // 지도의 확대 레벨
-                mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-            };
+          function getLocationandDrawMap() {
+            if(navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(drawMap);
+            } else {
+              console.log("Geo Location not supported by browser");
+            }
+          }
 
-        // 지도를 생성한다
-        var map = new kakao.maps.Map(mapContainer, mapOption);
+          function drawMap(position) {
+            // alert(position.coords.latitude)
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                mapOption = {
+                    center: new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude), // 지도의 중심좌표
+                    level: 13, // 지도의 확대 레벨
+                    mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+                };
 
-        // 지도에 마커를 생성하고 표시한다
-        {% for hp in site.data.hospitals %}
-        var marker = new kakao.maps.Marker({
-            position: new kakao.maps.LatLng({{hp.lat}}, {{hp.lng}}), // 마커의 좌표
-            map: map // 마커를 표시할 지도 객체
-        });
+            // 지도를 생성한다
+            var map = new kakao.maps.Map(mapContainer, mapOption);
 
-        // 마커 위에 표시할 인포윈도우를 생성한다
-        var infowindow = new kakao.maps.InfoWindow({
-            content : '<div style="padding:5px;">{{hp.name}}</div>' // 인포윈도우에 표시할 내용
-        });
+            // 지도에 마커를 생성하고 표시한다
+            {% for hp in site.data.hospitals %}
+            var marker = new kakao.maps.Marker({
+                position: new kakao.maps.LatLng({{hp.lat}}, {{hp.lng}}), // 마커의 좌표
+                map: map // 마커를 표시할 지도 객체
+            });
 
-        // 인포윈도우를 지도에 표시한다
-        infowindow.open(map, marker);
-        {% endfor %}
+            // 마커 위에 표시할 인포윈도우를 생성한다
+            var infowindow = new kakao.maps.InfoWindow({
+                content : '<div style="padding:5px;">{{hp.name}}</div>' // 인포윈도우에 표시할 내용
+            });
+
+            // 인포윈도우를 지도에 표시한다
+            infowindow.open(map, marker);
+            {% endfor %}
+          }
+          getLocationandDrawMap();
 
         </script>
 
