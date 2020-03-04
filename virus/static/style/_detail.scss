@@ -7,3 +7,16 @@
     padding: 20px;
     font-size: 16px;
 }
+
+.comment{
+    &_user{
+        color: rgba($color: #8d8d8d, $alpha: 1.0);
+        padding-left: 4px;
+        font-size: 12px;
+    }
+    &_contents{
+        color: black;
+        font-size: 16px;
+        border-bottom: 1px solid gray;
+    }
+}

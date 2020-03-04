@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Posting
+from .models import Posting, Comments
 from django.utils import timezone
 
 def main(request):
@@ -37,10 +37,27 @@ def community(request):
     })
 
 def detail(request, id):
-    Post = Posting.objects.get(id=id)
-    return render(request, 'detail.html',{
-        'Post' : Post,
-    })
+    if(request.method == "GET"):
+        Post = Posting.objects.get(id=id)
+        _Comments = Comments.objects.filter(post_num=id)
+        return render(request, 'detail.html',{
+            'Post' : Post,
+            'Comments' : _Comments,
+        })
+    elif(request.method == "POST"):
+        _post_num = id
+        _user = request.POST.get('user')
+        _content = request.POST.get('content')
+        _updated_at = timezone.datetime.now()
+
+        new_comment = Comments.objects.create(
+            post_num = _post_num,
+            user = _user,
+            content = _content,
+            updated_at = _updated_at,     
+        )
+        return redirect('/community/'+str(id))
+
 
 def create_posting(request):
 
