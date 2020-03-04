@@ -10,11 +10,12 @@
     <div class="wrapper">
       <div class="page-content">
         <div class="header-page">
-          <h1 class="page-title"> 코로나 19 보도자료 </h1>
+          <h1 class="page-title"> 커뮤니티 </h1>
         </div>
-
+  
         <!-- content here! -->
         <div class="tablepage">
+          <a href="/posting" class="posting">글쓰기</a>
           <table class="postTable" border="1">
             <thead>
               <tr>
@@ -27,7 +28,7 @@
             {% for post in Posts %}
               <tr>
                 <td class="id">{{ post.id }}</td>
-                <td class="title">{{ post.title }}</td>
+                <td class="title"><a href="{{ post.id }}">{{ post.title }}</a></td>
                 <td class="user">{{ post.useremail }}</td>
               </tr>
             {% endfor %}
@@ -47,7 +48,7 @@
     var table_th_length = table.find("thead th").length; //테이블 칸의 갯수
     var table_tr_length = table.find("tbody tr").length; //테이블 내용 줄 갯수
     var $tr = table.find('tbody tr');
-    var rowPerPage = 3 //페이지당 글 개수
+    var rowPerPage = 10 //페이지당 글 개수
     var pageTotal = parseInt(table_tr_length/rowPerPage) + 1
     console.log(pageTotal)
     $('#nav').remove();

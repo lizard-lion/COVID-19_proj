@@ -36,6 +36,12 @@ def community(request):
         'Posts' : Posts,
     })
 
+def detail(request, id):
+    Post = Posting.objects.get(id=id)
+    return render(request, 'detail.html',{
+        'Post' : Post,
+    })
+
 def create_posting(request):
 
     if(request.method == "GET"):
