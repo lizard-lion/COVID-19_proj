@@ -18,6 +18,24 @@
 
         {% include './author-box.html' %}
       </div>
+      <div class="comments_input">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label> 닉네임 (미기입시 익명처리)</label>
+            <br/>
+            <input class="user_input" type="text" name="user" placeholder="닉네임"></input>
+            <br/>
+            <textarea class="content_input" cols="40" rows="10" name="content" placeholder="댓글을 작성하세요"></textarea>
+            <br/>
+            <input class="submit" type="submit"/>
+        </form>
+      </div>
+      <div class="comments">
+        {% for comment in Comments %}
+            <p class="comment_user"> {{ comment.user }} / {{ comment.updated_at }}</p>
+            <p class="comment_contents"> {{ comment.content }} </p>
+        {% endfor %}
+      </div>
     </div> <!-- End Wrapper -->
 </article>
 
