@@ -1,11 +1,17 @@
 var staticCacheName = 'COVID-19_cache';
+var contentToCache = [
+  '/',
+  'about/',
+  'hospital/',
+  'patient/',
+  'virus/',
+];
+
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
-      return cache.addAll([
-        '/',
-      ]);
+      return cache.addAll(contentToCache);
     })
   );
 });
